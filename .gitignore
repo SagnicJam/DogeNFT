@@ -58,3 +58,10 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+DogeNFT/Assets/Settings/
+DogeNFT/Library/EditorOnlyVirtualTextureState.json
+DogeNFT/Library/
+DogeNFT/Logs/
+DogeNFT/ProjectSettings/
+DogeNFT/Packages/
+DogeNFT/UserSettings/
