@@ -4,6 +4,7 @@ using UnityEngine;
 public delegate void OnWorkDone<T>(T data);
 public class EnemySpawnRandomizer : MonoBehaviour
 {
+    public OnWorkDone<string> errorMessage;
     public Dictionary<int, List<Enemy>> enemyCostToEnemies = new Dictionary<int, List<Enemy>>();
 
     public List<Enemy> toSpawnEnemies = new List<Enemy>();
@@ -53,21 +54,25 @@ public class EnemySpawnRandomizer : MonoBehaviour
         if (maxEnemyCount > enemies.Length)
         {
             Debug.LogError("EnemyCountMax range is larger that total enemies in stats");
+            errorMessage?.Invoke("EnemyCountMax range is larger that total enemies in stats");
             return false;
         }
         if (totalEnemyCost < maxEnemyCost)
         {
             Debug.LogError("max enemy cost range is greater than the total enemy cost ");
+            errorMessage?.Invoke("max enemy cost range is greater than the total enemy cost ");
             return false;
         }
         if (totalEnemyCost < maxEnemyCost)
         {
             Debug.LogError("max enemy cost range is greater than the total enemy cost ");
+            errorMessage?.Invoke("max enemy cost range is greater than the total enemy cost ");
             return false;
         }
         if((minEnemyCost*minEnemyCount)>totalEnemyCost)
         {
-            Debug.LogError("combo of min enemy cost and minimum enemmy count is too large for the total cost you have");
+            Debug.LogError("combo of min enemy cost and minimum enemy count is too large for the total cost you have");
+            errorMessage?.Invoke("combo of min enemy cost and minimum enemy count is too large for the total cost you have");
             return false;
         }
        
@@ -77,6 +82,7 @@ public class EnemySpawnRandomizer : MonoBehaviour
             if (!enemyCostToEnemies.ContainsKey(i))
             {
                 Debug.LogError("range item is missing in the stats");
+                errorMessage?.Invoke("range item is missing in the stats");
                 return false;
             }
         }

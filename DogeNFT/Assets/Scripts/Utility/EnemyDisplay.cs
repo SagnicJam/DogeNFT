@@ -9,10 +9,9 @@ public class EnemyDisplay : MonoBehaviour
 
     IObjectPool<EnemyDisplay> enemyPool;
 
-    public void SpawnNewPrefab(Enemy enemy,RectTransform parentRect)
+    public void SpawnNewPrefab(Enemy enemy)
     {
-        transform.SetParent(parentRect);
-        textMeshProUGUI.text = "Enemy id : " + enemy.id + " ,Cost : " + enemy.enemyCost;
+        textMeshProUGUI.text = "E"+enemy.id+"@"+enemy.enemyCost;
     }
 
     public void SetPool(IObjectPool<EnemyDisplay> pool)

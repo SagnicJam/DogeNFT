@@ -16,8 +16,6 @@ public class DungeonEnemySpawner : MonoBehaviour
     [MinMaxSlider(0, 100)]
     public Vector2Int enemyCountRange;
 
-    
-
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space))

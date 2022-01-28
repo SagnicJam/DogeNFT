@@ -6,6 +6,7 @@ using UnityEngine.Pool;
 public class EnemyDataSpawnner : MonoBehaviour
 {
     public EnemyDisplay enemyDisplayPrefab;
+    public RectTransform rtParent;
     public ObjectPool<EnemyDisplay> enemyDisplayPool;
     private void Awake()
     {
@@ -23,10 +24,12 @@ public class EnemyDataSpawnner : MonoBehaviour
     void OnTakeEnemyDisplayFromPool(EnemyDisplay enemyDisplay)
     {
         enemyDisplay.gameObject.SetActive(true);
+        enemyDisplay.transform.SetParent(rtParent);
     }
 
     void OnReturnEnemyDisplayToPool(EnemyDisplay enemyDisplay)
     {
         enemyDisplay.gameObject.SetActive(false);
+        enemyDisplay.transform.SetParent(null);
     }
 }
